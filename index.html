@@ -2,209 +2,984 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <meta property="og:title" content="Mystery Box KISAH SLOT" />
-    <meta property="og:description" content="Klaim Hadiah Mystery Box KISAH SLOT" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="https://kisahbaru.vercel.app" />
+    <meta property="og:title" content="KISAH SLOT - Spin & Win" />
+    <meta property="og:description" content="Putar roda keberuntungan dan menangkan hadiah hingga 200 ribu! Gratis dan mudah." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://api.screenshotmachine.com/?key=ca5106&url=https://kisahslot.com&dimension=1024x768" />
-    
-    <title>Mystery Box KISAH SLOT</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
-    
+    <meta property="og:image" content="https://img.hiicord.com/gambar/kisahslot.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@replit" />
+    <meta name="twitter:title" content="KISAH SLOT - Spin & Win" />
+    <meta name="twitter:description" content="Putar roda keberuntungan dan menangkan hadiah hingga 200 ribu! Gratis dan mudah." />
+    <meta name="twitter:image" content="https://img.hiicord.com/gambar/kisahslot.jpg" />
+    <title>KISAH SLOT - Spin & Win Lucky Wheel</title>
     <style>
-        :root {
-            --gold: #ffcc00;
-            --dark-bg: #0a0a0c;
-            --premium-red: #ff4500;
-        }
-
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background: var(--dark-bg);
-            background-image: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0c 100%);
-            font-family: 'Poppins', sans-serif;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a0f2e 50%, #0f1f2e 100%);
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
         }
 
         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
             text-align: center;
-            width: 90%;
-            max-width: 450px;
-            animation: fadeIn 1s ease-out;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(to bottom, rgba(15, 15, 30, 0.8), rgba(15, 15, 30, 0.5));
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.6s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .logo {
-            width: 180px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.5));
+            height: 100px;
+            display: block;
+            filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));
+            position: relative;
+            z-index: 11;
+        }
+
+        .logo-image {
+            height: 120px;
+            width: auto;
+            max-width: 300px;
+            display: block;
+            filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));
+            position: relative;
+            z-index: 11;
         }
 
         h1 {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 2.5rem;
-            margin: 0;
-            color: var(--gold);
-            text-transform: uppercase;
-            text-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
-        }
-
-        p {
-            font-size: 1rem;
-            color: #ccc;
-            margin-bottom: 30px;
-        }
-
-        /* ANIMASI KOTAK HADIAH */
-        .box-wrapper {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: #ffffff;
+            animation: fadeIn 0.8s ease-out;
             position: relative;
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 40px;
-            cursor: pointer;
-            transition: transform 0.3s;
+            z-index: 11;
         }
 
-        .box-wrapper:hover {
-            transform: scale(1.1);
+        h1 .highlight {
+            color: #FFD700;
+            animation: pulse 2s infinite;
         }
 
-        .box-img {
-            width: 100%;
-            height: 100%;
-            background: var(--gold);
-            border-radius: 15px;
-            box-shadow: 0 0 50px rgba(255, 204, 0, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 80px;
-            position: relative;
-            animation: shake 2s infinite;
-        }
-
-        .box-img::after {
-            content: "🎁";
-        }
-
-        /* MODAL / RESULT */
-        #result {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0,0,0,0.95);
-            border: 2px solid var(--gold);
-            padding: 30px;
-            border-radius: 20px;
-            width: 85%;
-            max-width: 350px;
-            z-index: 100;
-            box-shadow: 0 0 100px rgba(0,0,0,1);
-            animation: popUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .btn-claim {
-            display: inline-block;
-            background: linear-gradient(to bottom, #ffcc00, #cc9900);
-            color: black;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1.2rem;
-            margin-top: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            animation: pulse 1.5s infinite;
-        }
-
-        /* ANIMASI */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
-        @keyframes shake {
-            0%, 100% { transform: rotate(0deg); }
-            10%, 30%, 50%, 70%, 90% { transform: rotate(-5deg); }
-            20%, 40%, 60%, 80% { transform: rotate(5deg); }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 204, 0, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
-        @keyframes popUp {
-            from { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out;
+            position: relative;
+            z-index: 11;
         }
 
-        .overlay {
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        .wheel-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wheel-wrapper {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            max-width: 100%;
+        }
+
+        .pointer {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 30;
+            width: 50px;
+            height: 60px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+        }
+
+        .pointer svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .wheel-outer {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            padding: 15px;
+            background: linear-gradient(to bottom, #D4A500, #996600);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.3);
+            border: 4px solid #664400;
+            position: relative;
+        }
+
+        .wheel-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                #ef4444 0deg 60deg,
+                #ffffff 60deg 120deg,
+                #ef4444 120deg 180deg,
+                #ffffff 180deg 240deg,
+                #ef4444 240deg 300deg,
+                #ffffff 300deg 360deg
+            );
+            border: 4px solid #664400;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+            position: relative;
+            animation: spin-placeholder 0s linear;
+        }
+
+        .wheel-inner.spinning {
+            animation: spin-wheel 6s cubic-bezier(0.15, 0, 0.15, 1) forwards;
+        }
+
+        @keyframes spin-wheel {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(var(--rotation));
+            }
+        }
+
+        .prize-text {
+            position: absolute;
+            font-weight: 900;
+            font-size: 24px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .wheel-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom-right, #FFD700, #B8860B);
+            border: 4px solid #664400;
+            box-shadow: 0 0 15px rgba(0,0,0,0.4);
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wheel-center::after {
+            content: '';
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #CC0000;
+            border: 2px solid #880000;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+        }
+
+        .input-section {
+            background: rgba(255, 215, 0, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 50px -12px rgba(255, 215, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .input-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .input-section p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        input {
+            width: 100%;
+            height: 56px;
+            font-size: 18px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            color: #FFD700;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        button {
+            width: 100%;
+            height: 64px;
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(to bottom, #FFD700, #CCAA00);
+            color: #000000;
+            border: 4px solid #997700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+            font-family: inherit;
+        }
+
+        button:hover:not(:disabled) {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(to bottom, #FFED4E, #FFD700);
+        }
+
+        button:active:not(:disabled) {
+            transform: scale(0.98);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .jackpot-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            padding-top: 15px;
+        }
+
+        .jackpot-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .jackpot-amount {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #4ade80;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+
+        .spun-message {
+            text-align: center;
+            padding: 15px;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            border-radius: 8px;
+            color: rgba(248, 113, 113, 0.9);
+            animation: pulse 2s infinite;
+            margin-bottom: 20px;
+        }
+
+        .winners-section {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .winners-header {
+            background: linear-gradient(to right, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.05));
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 215, 255, 0.1);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .winners-table {
+            width: 100%;
+            border-collapse: collapse;
+            max-height: 300px;
+            overflow-y: auto;
+            display: block;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 215, 0, 0.3) rgba(0, 0, 0, 0.2);
+        }
+
+        .winners-table::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .winners-table::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .winners-table::-webkit-scrollbar-thumb {
+            background: rgba(255, 215, 0, 0.3);
+            border-radius: 3px;
+        }
+
+        .winners-table::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 215, 0, 0.5);
+        }
+
+        .winners-table-header {
+            display: grid;
+            grid-template-columns: 60px 1fr 150px;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+            color: #FFD700;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .winners-table-row {
+            display: grid;
+            grid-template-columns: 60px 1fr 150px;
+            gap: 10px;
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            align-items: center;
+            animation: slideInLeft 0.3s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .winners-table-row:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .winner-no {
+            font-family: 'Courier New', monospace;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+
+        .winner-id {
+            font-weight: 500;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .winner-prize {
+            text-align: right;
+            font-weight: bold;
+            color: #4ade80;
+        }
+
+        .modal {
             display: none;
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 99;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(20, 10, 40, 0.95), rgba(30, 20, 50, 0.95));
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.3);
+            animation: zoomIn 0.3s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .prize-amount {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FFD700;
+            margin: 30px 0;
+            animation: bounce 0.6s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .modal-content button {
+            margin-top: 20px;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .floating-chat {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(to right, #10b981, #059669);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.2s ease;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .chat-button svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+        }
+
+        .mute-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+
+        .mute-button:hover {
+            background: rgba(0, 0, 0, 0.7);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .mute-button svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(16, 185, 129, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse-ring 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
+    <button class="mute-button" id="muteBtn" title="Toggle Sound">
+        <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.26 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
+    </button>
 
     <div class="container">
-        <img src="https://via.placeholder.com/180x80/0a0a0c/ffcc00?text=KISAH+SLOT" alt="Logo KISAH SLOT" class="logo">
-        
-        <h1>Mystery Box</h1>
-        <p>Ketuk kotak untuk melihat keberuntunganmu hari ini!</p>
+        <header>
+            <div class="logo-wrapper">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL4AAAC+CAYAAACLdLWdAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGZmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDYgNzkuMTY0NzUzLCAyMDIxLzAyLzE1LTExOjUyOjEzICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIzLTAxLTE0VDExOjQwOjMxKzA3OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIzLTAxLTE0VDExOjQwOjMxKzA3OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMy0wMS0xNFQxMTo0MDozMSswNzowMCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowNGRmNzJjNi1lNjgxLTgzNDMtYjRlNS02NDEyNWY1N2IzYzYiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDozZWYyOTFjMi1jOGUzLWQwNDYtOTBhMy04NGY3NmU3YWIzNGYiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpmN2VhZTVhMi0wYjkxLTFhNGYtOWFiYS1iNmYwZWExZTM4MmMiIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDpmN2VhZTVhMi0wYjkxLTFhNGYtOWFiYS1iNmYwZWExZTM4MmMiIHN0RXZ0OndoZW49IjIwMjMtMDEtMTRUMTE6NDA6MzErMDc6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMi4zIChXaW5kb3dzKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6MDRkZjcyYzYtZTY4MS04MzQzLWI0ZTUtNjQxMjVmNTdiM2M2IiBzdEV2dDp3aGVuPSIyMDIzLTAxLTE0VDExOjQwOjMxKzA3OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDxwaG90b3Nob3A6RG9jdW1lbnRBbmNlc3RvcnM+IDxyZGY6QmFnPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDo5MTIzMzhkOS1kODQxLTQ3NGItYjZmZi1lNGIzMWVhYTk5NzY8L3JkZjpsaT4gPC9yZGY6QmFnPiA8L3Bob3Rvc2hvcDpEb2N1bWVudEFuY2VzdG9ycz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz69z71rAAA05klEQVR4nO29eXwV1f3//zpntrvl3qxkgQBJCAECBMIuq6AFlFVkFRUUpC6o9YML1WrrVqwWd0XcClJEUShVq2hVQKVWdtl3SAiB7Lnr3NnO9497E0MIWG1/7ePx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" alt="KISAH SLOT Logo" class="logo-image">
+            </div>
+            <h1>SELAMAT DATANG DI <span class="highlight">KISAH SLOT</span></h1>
+            <p class="subtitle">PUTAR RODANYA & DAPATKAN HADIAH FANTASTIS HINGGA 200 RIBU RUPIAH!</p>
+        </header>
 
-        <div class="box-wrapper" onclick="openBox()">
-            <div class="box-img"></div>
+        <div class="main-content">
+            <div class="wheel-container">
+                <div class="wheel-wrapper">
+                    <div class="pointer">
+                        <svg viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 60L4 20C4 20 8 4 24 4C40 4 44 20 44 20L24 60Z" fill="#FFD700" stroke="#B8860B" stroke-width="2"/>
+                            <circle cx="24" cy="16" r="8" fill="#FFF" stroke="#B8860B" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="wheel-outer">
+                        <div class="wheel-inner" id="wheel">
+                            <div class="wheel-center"></div>
+                            <!-- Prize texts will be generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="input-section">
+                    <h2>MASUKAN USER ID</h2>
+                    <p>Masukan User ID anda untuk memutar roda keberuntungan!</p>
+                    <input type="text" id="userIdInput" placeholder="Contoh: USER123" maxlength="20" />
+                    <button id="spinBtn" onclick="startSpin()">SPIN SEKARANG!</button>
+                    <div class="jackpot-display">
+                        <div class="jackpot-label">Total Jackpot</div>
+                        <div class="jackpot-amount" id="jackpot">IDR 888.888.888</div>
+                    </div>
+                </div>
+                <div id="spunMessage" class="spun-message" style="display: none;">
+                    Kesempatan spin anda sudah habis. Silahkan klaim hadiah anda.
+                </div>
+                <div class="winners-section">
+                    <div class="winners-header">🏆 50 Daftar Riwayat Spin Terakhir</div>
+                    <div class="winners-table" id="winnersTable">
+                        <div class="winners-table-header">
+                            <div>NO</div>
+                            <div>USER ID</div>
+                            <div>HADIAH</div>
+                        </div>
+                        <!-- Rows will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div style="font-size: 11px; color: #555;">© 2025 KISAH SLOT - All Rights Reserved</div>
     </div>
 
-    <div class="overlay" id="overlay"></div>
-    <div id="result">
-        <h2 style="color:var(--gold); margin-top:0;">SELAMAT!</h2>
-        <p style="color:white; font-size: 1.2rem;">Kamu Memenangkan Hadiah:</p>
-        <div id="prizeName" style="font-size: 2rem; font-weight: 800; color: #00ffcc; margin: 20px 0;">Saldo Rp 50.000</div>
-        <p style="font-size: 13px;">Silakan klaim ke WhatsApp Admin kami sekarang!</p>
-        <a href="https://wa.me/628123456789?text=Bos, saya klaim hadiah Mystery Box!" class="btn-claim">KLAIM SEKARANG</a>
+    <div class="modal" id="prizeModal">
+        <div class="modal-content">
+            <h1>SELAMAT!</h1>
+            <p>Anda memenangkan hadiah sebesar</p>
+            <div class="prize-amount" id="prizeAmount">IDR 100.000</div>
+            <p>Silahkan hubungi CS untuk klaim hadiah anda dengan screenshot ini.</p>
+            <button onclick="claimPrize()">KLAIM SEKARANG</button>
+        </div>
     </div>
 
+    <div class="floating-chat">
+        <div class="pulse-ring"></div>
+        <a href="https://slotkisah.org/" target="_blank" rel="noopener noreferrer" class="chat-button" title="Chat CS 24/7">
+            <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+            </svg>
+        </a>
+    </div>
+
+    <audio id="bgMusic" loop></audio>
+    <audio id="spinSound"></audio>
+    <audio id="winSound"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
     <script>
-        function openBox() {
-            const result = document.getElementById('result');
-            const overlay = document.getElementById('overlay');
-            const prizeName = document.getElementById('prizeName');
-            
-            // List Hadiah Acak
-            const prizes = [
-                "Saldo Rp 25.000",
-                "Saldo Rp 50.000",
-                "Bonus Deposit 100%",
-                "Mystery Gift VIP",
-                "Freechip Rp 10.000"
-            ];
-            
-            const randomPrize = prizes[Math.floor(Math.random() * prizes.length)];
-            prizeName.innerText = randomPrize;
+        const PRIZES = ["25K", "50K", "75K", "100K", "150K", "200K"];
+        const PRIZE_AMOUNTS = ["25.000", "50.000", "75.000", "100.000", "150.000", "200.000"];
+        
+        let hasSpun = localStorage.getItem("hasSpun") === "true";
+        let isSpin = false;
+        let currentRotation = 0;
+        let muted = true;
+        let winners = generateMockWinners();
+        let jackpot = 888888888;
 
-            // Efek suara kalau mau ditambahin (opsional)
-            // const audio = new Audio('path_to_sound.mp3'); audio.play();
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            drawWheelPrizes();
+            renderWinners();
+            updateUI();
+            setupAudio();
+            startJackpotAnimation();
+        });
 
-            overlay.style.display = 'block';
-            result.style.display = 'block';
+        function generateMockWinners() {
+            return Array.from({ length: 50 }, (_, i) => ({
+                username: `USER${Math.floor(Math.random() * 9000) + 1000}***`,
+                amount: PRIZE_AMOUNTS[Math.floor(Math.random() * PRIZE_AMOUNTS.length)]
+            }));
         }
+
+        function drawWheelPrizes() {
+            const wheel = document.getElementById("wheel");
+            const segmentAngle = 360 / PRIZES.length;
+            
+            PRIZES.forEach((prize, index) => {
+                const angle = index * segmentAngle + segmentAngle / 2;
+                const div = document.createElement('div');
+                div.className = 'prize-text';
+                div.textContent = prize;
+                
+                const isWhite = (index + 1) % 2 === 0;
+                div.style.color = isWhite ? '#000000' : '#ffffff';
+                div.style.textShadow = isWhite ? 'none' : '0 2px 4px rgba(0,0,0,0.5)';
+                
+                const radius = 100;
+                const x = Math.cos((angle - 90) * Math.PI / 180) * radius;
+                const y = Math.sin((angle - 90) * Math.PI / 180) * radius;
+                
+                div.style.left = `calc(50% + ${x}px - 20px)`;
+                div.style.top = `calc(50% + ${y}px - 20px)`;
+                
+                wheel.appendChild(div);
+            });
+        }
+
+        function setupAudio() {
+            const bgMusic = document.getElementById('bgMusic');
+            const spinSound = document.getElementById('spinSound');
+            const winSound = document.getElementById('winSound');
+            
+            bgMusic.src = 'https://cdn.pixabay.com/download/audio/2022/03/24/audio_197846c632.mp3?filename=casino-music-1-2518.mp3';
+            spinSound.src = 'https://assets.mixkit.co/active_storage/sfx/2003/2003-preview.mp3';
+            winSound.src = 'https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3';
+            
+            bgMusic.volume = 0.3;
+            spinSound.volume = 0.6;
+            winSound.volume = 0.8;
+            
+            // Try to play on page load
+            setTimeout(() => {
+                if (!muted) {
+                    bgMusic.play().catch(e => console.log('Autoplay blocked by browser'));
+                }
+            }, 500);
+            
+            // Also try on first click/interaction anywhere on page
+            document.addEventListener('click', () => {
+                if (!muted && bgMusic.paused) {
+                    bgMusic.play().catch(e => console.log('Autoplay blocked'));
+                }
+            });
+        }
+
+        function toggleMute() {
+            muted = !muted;
+            const bgMusic = document.getElementById('bgMusic');
+            const muteBtn = document.getElementById('muteBtn');
+            
+            if (muted) {
+                bgMusic.pause();
+                muteBtn.innerHTML = '<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 L4.13399899,1.16751336 C3.34915502,0.9104159 2.40734225,1.02605983 1.77946707,1.4973519 C0.994623095,2.13399899 0.837654299,3.22259692 1.15159189,3.95411374 L3.03521743,10.3951066 C3.03521743,10.5522041 3.34915502,10.7093015 3.50612381,10.7093015 L16.6915026,11.4947884 C16.6915026,11.4947884 17.1624089,11.4947884 17.1624089,11.0234963 L17.1624089,12.6315722 C17.1624089,12.4744748 16.6915026,12.4744748 16.6915026,12.4744748 Z"/></svg>';
+                muteBtn.style.opacity = '0.5';
+            } else {
+                bgMusic.play().catch(e => console.log('Autoplay blocked'));
+                muteBtn.innerHTML = '<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.26 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
+                muteBtn.style.opacity = '1';
+            }
+        }
+
+        document.getElementById('muteBtn').addEventListener('click', toggleMute);
+
+        function startJackpotAnimation() {
+            setInterval(() => {
+                const change = Math.floor(Math.random() * 20000) - 5000;
+                jackpot = Math.max(800000000, jackpot + change);
+                document.getElementById('jackpot').textContent = `IDR ${jackpot.toLocaleString('id-ID')}`;
+            }, 1000);
+        }
+
+        function startSpin() {
+            const userIdInput = document.getElementById('userIdInput');
+            const userId = userIdInput.value.trim();
+            
+            if (!userId) {
+                alert('Masukan User ID terlebih dahulu!');
+                return;
+            }
+            
+            if (hasSpun) {
+                alert('Anda sudah melakukan spin! Kesempatan hanya 1x.');
+                return;
+            }
+            
+            if (isSpin) return;
+            
+            isSpin = true;
+            const spinBtn = document.getElementById('spinBtn');
+            spinBtn.disabled = true;
+            spinBtn.textContent = 'SPINNING...';
+            
+            // Play spin sound
+            if (!muted) {
+                const spinSound = document.getElementById('spinSound');
+                spinSound.currentTime = 0;
+                spinSound.play().catch(e => console.log('Audio play failed'));
+            }
+            
+            // Random antara 100K, 150K, 200K (index 3, 4, 5)
+            const highPrizes = [3, 4, 5];
+            const prizeIndex = highPrizes[Math.floor(Math.random() * highPrizes.length)];
+            const selectedPrize = PRIZES[prizeIndex];
+            const formattedAmount = PRIZE_AMOUNTS[prizeIndex];
+            
+            // Calculate rotation
+            const segmentAngle = 360 / PRIZES.length; // 60
+            const currentSegmentCenter = (prizeIndex * segmentAngle) + (segmentAngle / 2);
+            const rotationNeeded = 360 - currentSegmentCenter;
+            const fullSpins = 360 * (8 + Math.floor(Math.random() * 4));
+            const randomOffset = (Math.random() - 0.5) * (segmentAngle * 0.6);
+            
+            const currentRotationMod = currentRotation % 360;
+            const distanceToNextZero = 360 - currentRotationMod;
+            const totalRotation = currentRotation + distanceToNextZero + fullSpins + rotationNeeded + randomOffset;
+            
+            currentRotation = totalRotation;
+            
+            // Animate wheel
+            const wheel = document.getElementById('wheel');
+            wheel.classList.add('spinning');
+            wheel.style.setProperty('--rotation', totalRotation + 'deg');
+            
+            setTimeout(() => {
+                wheel.classList.remove('spinning');
+                wheel.style.transform = `rotate(${totalRotation}deg)`;
+                
+                // Play win sound
+                if (!muted) {
+                    const winSound = document.getElementById('winSound');
+                    winSound.currentTime = 0;
+                    winSound.play().catch(e => console.log('Audio play failed'));
+                }
+                
+                // Stop spin sound
+                const spinSound = document.getElementById('spinSound');
+                spinSound.pause();
+                spinSound.currentTime = 0;
+                
+                // Show prize
+                document.getElementById('prizeAmount').textContent = `IDR ${formattedAmount}`;
+                document.getElementById('prizeModal').classList.add('show');
+                
+                // Add to winners
+                winners.unshift({ username: userId, amount: formattedAmount });
+                winners = winners.slice(0, 50);
+                renderWinners();
+                
+                // Mark as spun
+                hasSpun = true;
+                localStorage.setItem('hasSpun', 'true');
+                updateUI();
+                
+                // Confetti
+                celebrateWin();
+                
+                isSpin = false;
+            }, 6000);
+        }
+
+        function updateUI() {
+            const spinBtn = document.getElementById('spinBtn');
+            const userIdInput = document.getElementById('userIdInput');
+            const spunMessage = document.getElementById('spunMessage');
+            
+            if (hasSpun) {
+                spinBtn.disabled = true;
+                spinBtn.textContent = 'SUDAH SPIN';
+                userIdInput.disabled = true;
+                spunMessage.style.display = 'block';
+            } else {
+                spinBtn.disabled = false;
+                spinBtn.textContent = 'SPIN SEKARANG!';
+                userIdInput.disabled = false;
+                spunMessage.style.display = 'none';
+            }
+        }
+
+        function renderWinners() {
+            const table = document.getElementById('winnersTable');
+            const header = table.querySelector('.winners-table-header');
+            table.innerHTML = header.outerHTML;
+            
+            winners.forEach((winner, index) => {
+                const row = document.createElement('div');
+                row.className = 'winners-table-row';
+                row.innerHTML = `
+                    <div class="winner-no">${index + 1}</div>
+                    <div class="winner-id">${winner.username}</div>
+                    <div class="winner-prize">IDR ${winner.amount}</div>
+                `;
+                table.appendChild(row);
+            });
+        }
+
+        function claimPrize() {
+            window.location.href = 'https://slotkisah.org/';
+        }
+
+        function celebrateWin() {
+            const duration = 3000;
+            const end = Date.now() + duration;
+            
+            const frame = () => {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#FFD700', '#ff0000', '#ffffff']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#FFD700', '#ff0000', '#ffffff']
+                });
+                
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            };
+            frame();
+        }
+
+        // Close modal on background click
+        document.getElementById('prizeModal').addEventListener('click', (e) => {
+            if (e.target.id === 'prizeModal') {
+                document.getElementById('prizeModal').classList.remove('show');
+            }
+        });
     </script>
 </body>
 </html>
